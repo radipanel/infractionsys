@@ -35,6 +35,7 @@ function checkdbfield($fieldname) {
  * @return $q      - true if the warning was added, false if it wasn't.
  */
 function addinfractiontouser($username) {
+
 }
 
 /*
@@ -43,5 +44,6 @@ function addinfractiontouser($username) {
  * @return $q      - true if the warning was added, false if it wasn't.
  */
 function addwarningtouser($username) {
+
 }
 ?>
