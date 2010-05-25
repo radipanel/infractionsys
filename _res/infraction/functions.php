@@ -4,7 +4,7 @@ require_once( "_inc/glob.php" );
 /*
  * checkdbfield - checks MySQL table for field existance.
  * @param  $fieldname - required. the name of the field we are trying to find.
- * @return $q      - true if the field exists, false if it doesn;t.
+ * @return $q      - true if the field exists, false if it doesn't.
  */
 function checkdbfield($fieldname) {
 	
