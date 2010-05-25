@@ -8,7 +8,7 @@ require_once( "_inc/glob.php" );
  */
 function checkdbfield($fieldname) {
 	
-	$fields = mysql_list_fields($params['db']['database'], 'users');
+	$fields = $db->query( "SHOW COLUMNS FROM users [LIKE '". $fieldname ."']" );
 	$columns = mysql_num_fields($fields);
 	
 	for ($i = 0; $i < $columns; $i++) {
