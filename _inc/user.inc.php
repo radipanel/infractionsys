@@ -138,10 +138,10 @@
 				throw new UserException( 'Invalid username/password.' );
 			
 			}
-else if ($array[banned] == "1")
-{
-throw new UserException( 'You are currently Banned. Please contact management ASAP.' );
-}
+			else if ($array[banned] == "1") {
+
+				throw new UserException( 'You have been banned. Please contact a member of the staff team.' );
+			}
 			else {
 			
 				$this->assignUser( $array['id'] );
