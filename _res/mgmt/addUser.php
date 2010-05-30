@@ -105,6 +105,11 @@
 
 		<table width="100%" cellpadding="3" cellspacing="0">
 			<?php
+			if ($data['banned'] == "1") {
+			?>
+			<div style="background: red; border: 1px solid black; padding: 5px;"><strong>User is currently banned!</strong></div>
+			<?php
+			}
 
 				$query = $db->query( "SELECT * FROM usergroups" );
 				
@@ -134,22 +139,10 @@
 					
 				}
 
-				if ( $data['banned'] == "0" ) {
-
 				$opt_banned = Array (
 							"0" => "Active",
 							"1" => "Banned"
 				);
-
-				}
-				else if ( $data['banned'] == "1" ) {
-
-				$opt_banned = Array (
-							"1" => "Banned",
-							"0" => "Active"
-				);
-
-				}
 
 				echo $core->buildField( "text",
 										"required",
