@@ -1,5 +1,5 @@
 <?php
-require_once( "../_inc/glob.php" );
+require_once( "../../_inc/glob.php" );
 
 /*
  * addInfractionToUser - adds an infraction to a user.
