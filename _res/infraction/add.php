@@ -27,5 +27,9 @@ require_once( "functions.php" );
 		?>
 		</select>
 
+		<label for="reason">Reason:</label>
+		<input type="text" name="reason" />
+
+		<input type="submit" value="Add!" />
 </form>
 
