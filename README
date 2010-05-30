@@ -1,7 +1,10 @@
 === RadiPanel: Infraction System ===
-Contributors: Matthew Gall (iCame)
+Contributors: Matthew Gall (iCame), Simon Turp (Swimo)
 
 RadiPanel: Infraction System is an extension of the PHP / MySQL powered RadiPanel system developed by Josh under a Creative Commons Attribution-NonCommercial-ShareAlike 2.0 UK: England & Wales Licence (which can be viewed at http://creativecommons.org/licenses/by-nc-sa/2.0/uk/), that allows a system administrator to issue infractions and warnings to members of defined usergroups.
 
 == Licence ==
 RadiPanel: Infraction System is licenced under a Creative Commons Attribution-NonCommercial-ShareAlike 2.0 UK: England & Wales Licence, terms of which can be viewed at http://creativecommons.org/licenses/by-nc-sa/2.0/uk/ 
+
+== Credits ==
+Banning system created by Simon Turp (Swimo) and integrated by Matthew Gall (iCame). Used with permission under the Creative Commons Attribution-NonCommercial-ShareAlike 2.0 UK: England & Wales Licence, terms of which can be viewed at http://creativecommons.org/licenses/by-nc-sa/2.0/uk/.
