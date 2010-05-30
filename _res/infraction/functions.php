@@ -102,5 +102,20 @@ function addWarningToUser( $username, $reason ) {
  */
 function removeWarningFromUser( $username ) {
 
+	// First, we grab how many warnings this user currently has
+	$prewarning = $db->query ( "SELECT totalWarnings FROM users WHERE username = {$username}" );
+
+	// So now we have that, we take one from the number
+	$newwarning = $prewarning - 1;
+
+	// And now we just update their total
+	$db->query ( "UPDATE users SET totalWarnings = {$newinfraction} WHERE username = {$username}" );
+	
+	// And log the removed infraction
+	$db->query ( "INSERT INTO infraction_log (username, reason, addrem) VALUES ({$username}, {$reason}, 'rem')" );
+
+	// And it's done ;)
+	return true;
+
 }
 ?>
