@@ -163,6 +163,20 @@
 										"Email",
 										"The new email (optional).",
 										$data['email'] );
+
+				echo $core->buildField( "text",
+										"",
+										"totalInfractions",
+										"Infractions",
+										"Number of infractions the user has",
+										$data['totalInfractions'] );
+
+				echo $core->buildField( "text",
+										"",
+										"totalWarnings",
+										"Warnings",
+										"Number of warnings the user has",
+										$data['totalWarnings'] );
 										
 				echo $core->buildField( "text",
 										"",
