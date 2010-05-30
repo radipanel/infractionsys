@@ -35,7 +35,7 @@ function addInfractionToUser( $username, $reason ) {
 	}
 
 	// And log the infraction
-	$db->query ( "INSERT INTO infraction_log (username, reason, addrem) VALUES ({$username}, {$reason}, 'add')" );
+	$db->query ( "INSERT INTO infraction_log (id, username, reason, addrem, timestamp) VALUES (NULL, {$username}, {$reason}, 'add', NULL)" );
 
 	// And it's done ;)
 	return true;
@@ -59,7 +59,7 @@ function removeInfractionFromUser( $username, $reason ) {
 	$db->query ( "UPDATE users SET totalInfractions = {$newinfraction} WHERE username = {$username}" );
 	
 	// And log the removed infraction
-	$db->query ( "INSERT INTO infraction_log (username, reason, addrem) VALUES ({$username}, {$reason}, 'rem')" );
+	$db->query ( "INSERT INTO infraction_log (id, username, reason, addrem, timestamp) VALUES (NULL, {$username}, {$reason}, 'rem', NULL)" );
 
 	// And it's done ;)
 	return true;
@@ -93,7 +93,7 @@ function addWarningToUser( $username, $reason ) {
 	}
 
 	// And log the infraction
-	$db->query ( "INSERT INTO infraction_log (username, reason, addrem) VALUES ({$username}, {$reason}, 'add')" );
+	$db->query ( "INSERT INTO infraction_log (id, username, reason, addrem, timestamp) VALUES (NULL, {$username}, {$reason}, 'add', NULL)" );
 
 	// And it's done ;)
 	return true;
@@ -117,7 +117,7 @@ function removeWarningFromUser( $username, $reason ) {
 	$db->query ( "UPDATE users SET totalWarnings = {$newwarning} WHERE username = {$username}" );
 	
 	// And log the removed infraction
-	$db->query ( "INSERT INTO infraction_log (username, reason, addrem) VALUES ({$username}, {$reason}, 'rem')" );
+	$db->query ( "INSERT INTO infraction_log (id, username, reason, addrem, timestamp) VALUES (NULL, {$username}, {$reason}, 'rem', NULL)" );
 
 	// And it's done ;)
 	return true;
