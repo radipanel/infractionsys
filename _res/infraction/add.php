@@ -12,7 +12,7 @@ if ( $_POST['submitted'] == "true" ) {
 	$username = $_POST['username'];
 
 	// So, they've submitted the form, so we clean up some of the inputs
-	$reason = $db->clean( $_POST['reason'] );
+	$reason = $core->clean( $_POST['reason'] );
 	
 	// And then we figure out if they are issuing an infraction or a warning
 	if ( $_POST['type'] == "infraction" ) {
