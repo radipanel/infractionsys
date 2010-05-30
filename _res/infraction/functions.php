@@ -69,7 +69,29 @@ function removeInfractionFromUser( $username, $reason ) {
  * @param  $username - required. the name of the user we are warning.
  * @return $q      - true if the warning was added, false if it wasn't.
  */
-function addWarningToUser( $username ) {
+function addWarningToUser( $username, $reason ) {
+
+	// First, we grab how many warnings this user currently has
+	$prewarning = $db->query ( "SELECT totalWarnings FROM users WHERE username = {$username}" );
+
+	// So now we have that, we add one to the number
+	$newwarning = $prewarning + 1;
+
+	// Now, we check if the user has 3 warnings and need to alert an administrator
+	if ( $newwarning >= 3 ) {
+		// They have more than 3 warnings, so we need to alert an admin (although I have no idea how I'm going to do it without hacking the core code >.>)
+		$db->query ( "UPDATE users SET totalWarnings = {$newwarning} WHERE username = {$username}" );
+	}
+	else {
+		// They don't have more than 3 warnings, so we just update their total
+		$db->query ( "UPDATE users SET totalWarnings = {$newinfraction} WHERE username = {$username}" );
+	}
+
+	// And log the infraction
+	$db->query ( "INSERT INTO infraction_log (username, reason, addrem) VALUES ({$username}, {$reason}, 'add')" );
+
+	// And it's done ;)
+	return true;
 
 }
 
