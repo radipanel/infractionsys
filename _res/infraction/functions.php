@@ -34,7 +34,7 @@ function addInfractionToUser( $username, $reason ) {
 	}
 
 	// And log the infraction
-	$db->query ( "INSERT INTO infraction_log (username, reason) VALUES ({$username}, {$reason})" );
+	$db->query ( "INSERT INTO infraction_log (username, reason, addrem) VALUES ({$username}, {$reason}, 'add')" );
 
 	// And it's done ;)
 	return true;
@@ -44,9 +44,23 @@ function addInfractionToUser( $username, $reason ) {
 /*
  * removeInfractionFromUser - removes an infraction from a user.
  * @param  $username - required. the name of the user we are removing an infraction.
- * @return $q      - true if the infraction was removed, false if it wasn't.
  */
-function removeInfractionFromUser( $username ) {
+function removeInfractionFromUser( $username, $reason ) {
+
+	// First, we grab how many infractions this user currently has
+	$preinfraction = $db->query ( "SELECT totalInfractions FROM users WHERE username = {$username}" );
+
+	// So now we have that, we take one from the number
+	$newinfraction = $preinfraction - 1;
+
+	// And now we just update their total
+	$db->query ( "UPDATE users SET totalInfractions = {$newinfraction} WHERE username = {$username}" );
+	
+	// And log the removed infraction
+	$db->query ( "INSERT INTO infraction_log (username, reason, addrem) VALUES ({$username}, {$reason}, 'rem')" );
+
+	// And it's done ;)
+	return true;
 
 }
 
