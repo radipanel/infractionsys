@@ -4,6 +4,7 @@ require_once( "../../_inc/glob.php" );
 /*
  * addInfractionToUser - adds an infraction to a user.
  * @param  $username - required. the name of the user we are infracting.
+ * @param  $reason - required. the reason for adding the infraction.
  */
 function addInfractionToUser( $username, $reason ) {
 
@@ -44,6 +45,7 @@ function addInfractionToUser( $username, $reason ) {
 /*
  * removeInfractionFromUser - removes an infraction from a user.
  * @param  $username - required. the name of the user we are removing an infraction.
+ * @param  $reason - required. the reason for removing the infraction.
  */
 function removeInfractionFromUser( $username, $reason ) {
 
@@ -67,7 +69,7 @@ function removeInfractionFromUser( $username, $reason ) {
 /*
  * addWarningToUser - adds an warning to a user.
  * @param  $username - required. the name of the user we are warning.
- * @return $q      - true if the warning was added, false if it wasn't.
+ * @param  $reason - required. the reason for adding the infraction.
  */
 function addWarningToUser( $username, $reason ) {
 
@@ -98,7 +100,7 @@ function addWarningToUser( $username, $reason ) {
 /*
  * removeWarningFromUser - removes a warning from a user.
  * @param  $username - required. the name of the user we are removing a warning.
- * @return $q      - true if the warning was removed, false if it wasn't.
+ * @param  $reason - required. the reason for removing the warning.
  */
 function removeWarningFromUser( $username, $reason ) {
 
