@@ -67,7 +67,7 @@ else {
 
 		<p>Naughty users? Give them an infraction! Select a user, and click add!</p>
 		<label for="username">User:</label>
-		<select name="username" id="user">
+		<select name="username" id="username">
 		<?php
 			// First, we grab all the users
 			$getUsers = $db->query( "SELECT * FROM users" );
@@ -78,6 +78,14 @@ else {
 		<?php
 			}
 		?>
+		</select>
+
+		<label for="type">Type:</label>
+		<select name="type" id="type">
+
+			<option value="infraction">Infraction</option>
+			<option value="warning">Warning</option>
+
 		</select>
 
 		<label for="reason">Reason:</label>
