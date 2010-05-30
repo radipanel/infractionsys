@@ -142,7 +142,7 @@
 				);
 
 				}
-				else {
+				else if ( $data['banned'] == "1" ) {
 
 				$opt_banned = Array (
 							"1" => "Banned",
