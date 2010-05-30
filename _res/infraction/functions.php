@@ -34,7 +34,7 @@ function addInfractionToUser( $username, $reason ) {
 	}
 
 	// And log the infraction
-	$db->query ( "INSERT INTO infractionlog (username, reason) VALUES ({$username}, {$reason})" );
+	$db->query ( "INSERT INTO infraction_log (username, reason) VALUES ({$username}, {$reason})" );
 
 	// And it's done ;)
 
