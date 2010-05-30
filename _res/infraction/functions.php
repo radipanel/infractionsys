@@ -81,8 +81,11 @@ function addWarningToUser( $username, $reason ) {
 
 	// Now, we check if the user has 3 warnings and need to alert an administrator
 	if ( $newwarning >= 3 ) {
-		// They have more than 3 warnings, so we need to alert an admin (although I have no idea how I'm going to do it without hacking the core code >.>)
+		// They have more than 3 warnings, so now we need to ban them! First, change the number of warnings
 		$db->query ( "UPDATE users SET totalWarnings = {$newwarning} WHERE username = {$username}" );
+
+		// And then ban them, using the ban system created by Swimo
+		$db->query ( "UPDATE users SET banned = '1' WHERE username = {$username}" );
 	}
 	else {
 		// They don't have more than 3 warnings, so we just update their total
