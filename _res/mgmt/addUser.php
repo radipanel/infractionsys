@@ -134,6 +134,11 @@
 					
 				}
 
+				$opt_banned = Array (
+							"Banned" => "1",
+							"Active" => "0"
+				);
+
 				echo $core->buildField( "text",
 										"required",
 										"username",
@@ -161,12 +166,12 @@
 										"The new Habbo name (optional).",
 										$data['habbo'] );
 
-				echo $core->buildField( "text",
+				echo $core->buildField( "select",
 										"",
 										"banned",
 										"Banned",
 										"To ban a user, enter 1, thus restricting them from logging in or 0 to not ban.",
-										$data['banned'] );
+										$opt_banned );
 
 				echo $core->buildField( "select",
 										"required",
