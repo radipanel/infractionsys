@@ -165,7 +165,7 @@
 										"",
 										"banned",
 										"Banned",
-										"Select 1 to ban the user (restricting user from logging in) or 0 to be unbanned.",
+										"To ban a user, enter 1, thus restricting them from logging in or 0 to not ban.",
 										$data['banned'] );
 
 				echo $core->buildField( "select",
