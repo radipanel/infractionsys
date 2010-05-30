@@ -139,17 +139,6 @@
 							"0" => "Active"
 				);
 
-				if ( $data['banned'] == "1" ) {
-				
-				$opt_banned = "1";
-
-				}
-				else {
-				
-				$opt_banned = "0";
-			
-				}
-
 				echo $core->buildField( "text",
 										"required",
 										"username",
