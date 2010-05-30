@@ -6,7 +6,7 @@ if( !preg_match( "/index.php/i", $_SERVER['PHP_SELF'] ) ) { die(); }
 require_once( "functions.php" );
 
 // Check if the form has been submitted
-if ( $_POST['submitted'] == "true" ) {
+if ( isset( $_POST['submitted'] == "true" ) ) {
 
 	// Insert data into variables
 	$username = $_POST['username'];
