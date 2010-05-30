@@ -69,7 +69,7 @@ function removeInfractionFromUser( $username, $reason ) {
 /*
  * addWarningToUser - adds an warning to a user.
  * @param  $username - required. the name of the user we are warning.
- * @param  $reason - required. the reason for adding the infraction.
+ * @param  $reason - required. the reason for adding the warning.
  */
 function addWarningToUser( $username, $reason ) {
 
