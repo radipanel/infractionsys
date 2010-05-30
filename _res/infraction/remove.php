@@ -57,7 +57,7 @@ if ( $_POST['submitted'] == "true" ) {
 }
 else {
 ?>
-<form action="" method="post" id="addInfraction">
+<form action="" method="post" id="removeInfraction">
 
 	<div class="box">
 
@@ -65,7 +65,7 @@ else {
 			<strong>Remove Infraction / Warning From User</strong>
 		</div>
 
-		<p>Gace an infraction by mistake? Remove their infraction or warning here! Select a user, and click remove!</p>
+		<p>Gave an infraction by mistake? Remove their infraction or warning here! Select a user, and click remove!</p>
 		<label for="username">User:</label>
 		<select name="username" id="username">
 		<?php
