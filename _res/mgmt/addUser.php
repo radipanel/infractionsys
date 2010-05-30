@@ -135,8 +135,8 @@
 				}
 
 				$opt_banned = Array (
-							"Banned" => "1",
-							"Active" => "0"
+							"1" => "Banned",
+							"0" => "Active"
 				);
 
 				echo $core->buildField( "text",
