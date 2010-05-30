@@ -134,10 +134,22 @@
 					
 				}
 
+				if ( $data['banned'] == "0" ) {
+
+				$opt_banned = Array (
+							"0" => "Active",
+							"1" => "Banned"
+				);
+
+				}
+				else {
+
 				$opt_banned = Array (
 							"1" => "Banned",
 							"0" => "Active"
 				);
+
+				}
 
 				echo $core->buildField( "text",
 										"required",
