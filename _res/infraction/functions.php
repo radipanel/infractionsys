@@ -8,8 +8,12 @@ include( "../../_inc/glob.php" );
  */
 function addInfractionToUser( $username, $reason ) {
 	
-	// Declare $db as a global variable
+	// Declare $db and $user as a global variable
 	global $db;
+	global $user;
+
+	// Find out who issued it
+	$issuedby = $user->data['fullUsername'];
 	
 	// First, we grab how many infractions this user currently has
 	$preinfraction = $db->query( "SELECT totalInfractions FROM users WHERE username = '{$username}' LIMIT 1" );
@@ -40,7 +44,7 @@ function addInfractionToUser( $username, $reason ) {
 	}
 
 	// And log the infraction
-	$db->query( "INSERT INTO infraction_log (id, username, reason, type, addrem, timestamp) VALUES (NULL, '{$username}', '{$reason}', 'infraction', 'add', NULL)" );
+	$db->query( "INSERT INTO infraction_log (id, username, reason, type, addrem, issuedby, timestamp) VALUES (NULL, '{$username}', '{$reason}', 'infraction', 'add', '{­$issuedby}, NULL)" );
 
 	// And it's done ;)
 	return true;
@@ -54,8 +58,12 @@ function addInfractionToUser( $username, $reason ) {
  */
 function removeInfractionFromUser( $username, $reason ) {
 
-	// Declare $db as a global variable
+	// Declare $db and $user as a global variable
 	global $db;
+	global $user;
+
+	// Find out who issued it
+	$issuedby = $user->data['fullUsername'];
 	
 	// First, we grab how many infractions this user currently has
 	$preinfraction = $db->query( "SELECT totalInfractions FROM users WHERE username = '{$username}' LIMIT 1" );
@@ -68,7 +76,7 @@ function removeInfractionFromUser( $username, $reason ) {
 	$db->query( "UPDATE users SET totalInfractions = '{$newinfraction}' WHERE username = '{$username}'" );
 	
 	// And log the removed infraction
-	$db->query( "INSERT INTO infraction_log (id, username, reason, type, addrem, timestamp) VALUES (NULL, '{$username}', '{$reason}', 'infraction', 'rem', NULL)" );
+	$db->query( "INSERT INTO infraction_log (id, username, reason, type, addrem, issuedby, timestamp) VALUES (NULL, '{$username}', '{$reason}', 'infraction', 'rem', '{­$issuedby}, NULL)" );
 
 	// And it's done ;)
 	return true;
@@ -82,8 +90,12 @@ function removeInfractionFromUser( $username, $reason ) {
  */
 function addWarningToUser( $username, $reason ) {
 
-	// Declare $db as a global variable
+	// Declare $db and $user as a global variable
 	global $db;
+	global $user;
+
+	// Find out who issued it
+	$issuedby = $user->data['fullUsername'];
 	
 	// First, we grab how many warnings this user currently has
 	$prewarning = $db->query( "SELECT totalWarnings FROM users WHERE username = '{$username}'" );
@@ -106,7 +118,7 @@ function addWarningToUser( $username, $reason ) {
 	}
 
 	// And log the infraction
-	$db->query( "INSERT INTO infraction_log (id, username, reason, type, addrem, timestamp) VALUES (NULL, '{$username}', '{$reason}', 'warning', 'add', NULL)" );
+	$db->query( "INSERT INTO infraction_log (id, username, reason, type, addrem, issuedby, timestamp) VALUES (NULL, '{$username}', '{$reason}', 'warning', 'add', '{­$issuedby}, NULL)" );
 
 	// And it's done ;)
 	return true;
@@ -120,8 +132,12 @@ function addWarningToUser( $username, $reason ) {
  */
 function removeWarningFromUser( $username, $reason ) {
 
-	// Declare $db as a global variable
+	// Declare $db and $user as a global variable
 	global $db;
+	global $user;
+
+	// Find out who issued it
+	$issuedby = $user->data['fullUsername'];
 	
 	// First, we grab how many warnings this user currently has
 	$prewarning = $db->query( "SELECT totalWarnings FROM users WHERE username = '{$username}' LIMIT 1" );
@@ -134,7 +150,7 @@ function removeWarningFromUser( $username, $reason ) {
 	$db->query( "UPDATE users SET totalWarnings = '{$newwarning}' WHERE username = '{$username}'" );
 	
 	// And log the removed infraction
-	$db->query( "INSERT INTO infraction_log (id, username, reason, type, addrem, timestamp) VALUES (NULL, '{$username}', '{$reason}', 'warning', 'rem', NULL)" );
+	$db->query( "INSERT INTO infraction_log (id, username, reason, type, addrem, issuedby, timestamp) VALUES (NULL, '{$username}', '{$reason}', 'warning', 'rem', '{­$issuedby}, NULL)" );
 
 	// And it's done ;)
 	return true;

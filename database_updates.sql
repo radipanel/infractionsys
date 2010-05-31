@@ -6,5 +6,6 @@ CREATE TABLE `infraction_log` (
 `reason` VARCHAR( 255 ) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
 `type` VARCHAR( 100 ) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
 `addrem` VARCHAR( 3 ) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+`issuedby` VARCHAR( 100 ) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
 `timestamp` TIMESTAMP( 255 ) ON UPDATE CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE = MYISAM ;
