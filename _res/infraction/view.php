@@ -36,6 +36,8 @@ require_once( "functions.php" );
 			echo "<strong>Action:</strong> Removed";
 			}
 			echo "<br />";
+			echo "<strong>Issued by:</strong> {$array['issuedby']}";
+			echo "<br />";
 			echo "<strong>Date / Time:</strong> {$array['timestamp']}";
 			echo "</div>";
 			
