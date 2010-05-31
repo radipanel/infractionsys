@@ -48,3 +48,4 @@ require_once( "functions.php" );
 		}
 		?>		
 </form>
+</div>
