@@ -126,8 +126,6 @@ require_once( "functions.php" );
 										$data['reason'] );
 		?>
 
-		<input type="hidden" name="submitted" value="true" />
-
 		</table>
 
 		<div class="box" align="right">
