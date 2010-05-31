@@ -40,7 +40,7 @@ function addInfractionToUser( $username, $reason ) {
 	}
 
 	// And log the infraction
-	$db->query( "INSERT INTO infraction_log (id, username, reason, addrem, timestamp) VALUES (NULL, '{$username}', '{$reason}', 'add', NULL)" );
+	$db->query( "INSERT INTO infraction_log (id, username, reason, type, addrem, timestamp) VALUES (NULL, '{$username}', '{$reason}', 'infraction', 'add', NULL)" );
 
 	// And it's done ;)
 	return true;
@@ -68,7 +68,7 @@ function removeInfractionFromUser( $username, $reason ) {
 	$db->query( "UPDATE users SET totalInfractions = '{$newinfraction}' WHERE username = '{$username}'" );
 	
 	// And log the removed infraction
-	$db->query( "INSERT INTO infraction_log (id, username, reason, addrem, timestamp) VALUES (NULL, '{$username}', '{$reason}', 'rem', NULL)" );
+	$db->query( "INSERT INTO infraction_log (id, username, reason, type, addrem, timestamp) VALUES (NULL, '{$username}', '{$reason}', 'infraction', 'rem', NULL)" );
 
 	// And it's done ;)
 	return true;
@@ -106,7 +106,7 @@ function addWarningToUser( $username, $reason ) {
 	}
 
 	// And log the infraction
-	$db->query( "INSERT INTO infraction_log (id, username, reason, addrem, timestamp) VALUES (NULL, '{$username}', '{$reason}', 'add', NULL)" );
+	$db->query( "INSERT INTO infraction_log (id, username, reason, type, addrem, timestamp) VALUES (NULL, '{$username}', '{$reason}', 'warning', 'add', NULL)" );
 
 	// And it's done ;)
 	return true;
@@ -134,7 +134,7 @@ function removeWarningFromUser( $username, $reason ) {
 	$db->query( "UPDATE users SET totalWarnings = '{$newwarning}' WHERE username = '{$username}'" );
 	
 	// And log the removed infraction
-	$db->query( "INSERT INTO infraction_log (id, username, reason, addrem, timestamp) VALUES (NULL, '{$username}', '{$reason}', 'rem', NULL)" );
+	$db->query( "INSERT INTO infraction_log (id, username, reason, type, addrem, timestamp) VALUES (NULL, '{$username}', '{$reason}', 'warning', 'rem', NULL)" );
 
 	// And it's done ;)
 	return true;
