@@ -25,6 +25,8 @@ require_once( "functions.php" );
 		
 			echo "<div class=\"row {$i}\">";
 			
+			$array['type'] = ucwords( $array['type'] );
+			
 			echo "{$array['type']} Report: <strong>{$array['username']}</strong>";
 			echo "<br />";
 			echo "<strong>Reason:</strong> {$array['reason']}";
