@@ -13,5 +13,25 @@ require_once( "functions.php" );
 			<strong>View Infraction Log For User</strong>
 		</div>
 
-		<p>This feature hasn't been coded yet.... But remember that this version is considered <strong>alpha</strong> code and not safe for a production site. I'll get around to it, I promise</p>
+		<p>The infraction log is a list of all infractions issued, to whom and for what. Nothing special here, it's just a big list!</p>
+
+		<?php
+		// Declare $db as a global
+		global $db;
+
+		$infraction_log = $db->query( "SELECT * FROM infraction_log" );
+		
+		while( $array = $db->assoc( $infraction_log ) ) {
+		
+			echo "<div class=\"row {$i}\">";
+			
+			echo "Infraction to <strong>{$array['username']}</strong>";
+			echo "<br />";
+			echo "<strong>Reason:</strong> {$array['host']}";
+			echo "</div>";
+			
+			$i++;
+
+		}
+		?>		
 </form>
