@@ -36,6 +36,8 @@
 					$habbo    = $core->clean( $_POST['habbo'] );
 					$dgroup   = $core->clean( $_POST['dgroup'] );
                                         $banned   = $core->clean( $_POST['banned'] );
+					$warnings = $core->clean( $_POST['totalWarnings'] );
+					$infractions = $core->clean( $_POST['totalInfractions'] );
 					
 					$query    = $db->query( "SELECT * FROM usergroups" );
 					
@@ -71,12 +73,13 @@
 								
 							}
 
-							$db->query( "UPDATE users SET username = '{$username}'{$password}, email = '{$email}', habbo = '{$habbo}', displaygroup = '{$dgroup}', usergroups = '{$ugroups}', banned = '{$banned}' WHERE id = '{$editid}'" );
+							$db->query( "UPDATE users SET username = '{$username}'{$password}, email = '{$email}', habbo = '{$habbo}', displaygroup = '{$dgroup}', usergroups = '{$ugroups}', banned = '{$banned}', totalInfractions = '{$infractions}', totalWarnings = '{$warnings}' WHERE id = '{$editid}'" );
+
 
 						}
 						else {
 						
-							$db->query( "INSERT INTO users VALUES (NULL, '{$username}', '{$password_enc}', '{$email}', '{$habbo}', '{$dgroup}', '{$ugroups}', '{$banned}');" );
+							$db->query( "INSERT INTO users VALUES (NULL, '{$username}', '{$password_enc}', '{$email}', '{$habbo}', '{$dgroup}', '{$ugroups}', '{$banned}', '{$infractions}', '{$warnings}');" );
 						
 						}
 
