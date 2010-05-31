@@ -4,58 +4,6 @@ if( !preg_match( "/index.php/i", $_SERVER['PHP_SELF'] ) ) { die(); }
 
 // Require the functions.php file
 require_once( "functions.php" );
-
-// Check if the form has been submitted
-if( $_POST['submit'] ) {
-
-	// Insert data into variables
-	$username = $_POST['username'];
-
-	// So, they've submitted the form, so we clean up some of the inputs
-	$reason = $core->clean( $_POST['reason'] );
-	
-	// And then we figure out if they are issuing an infraction or a warning
-	if ( $_POST['type'] == "infraction" ) {
-		
-		// They are issuing an infraction
-		$infraction_issue = addInfractionToUser( $username, $reason );
-
-		// Check if the process finished successfully
-		switch ( $infraction_issue ) {
-			
-			case true:
-				// It did
-				$status = true;
-				break;
-			
-			case false:
-				// It failed :(
-				$status = false;
-				break;		
-		}
-
-	}
-	else if ( $_POST['type'] == "warning" ) {
-
-		// They are issuing an infraction
-		$warning_issue = addWarningToUser( $username, $reason );
-
-		// Check if the process finished successfully
-		switch ( $warning_issue ) {
-			
-			case true:
-				// It did
-				$status = true;
-				break;
-			
-			case false:
-				// It failed :(
-				$status = false;
-				break;		
-		}
-	}
-}
-else {
 ?>
 <form action="" method="post" id="addInfraction">
 
@@ -65,6 +13,78 @@ else {
 			<strong>Issue Infraction / Warning To User</strong>
 		</div>
 
+		<?php
+		// Check if the form has been submitted
+		if( $_POST['submit'] ) {
+
+			// Insert data into variables
+			$username = $_POST['username'];
+
+			// So, they've submitted the form, so we clean up some of the inputs
+			$reason = $core->clean( $_POST['reason'] );
+	
+			// And then we figure out if they are issuing an infraction or a warning
+			if ( $_POST['type'] == "infraction" ) {
+		
+					// They are issuing an infraction
+					$infraction_issue = addInfractionToUser( $username, $reason );
+
+					// Check if the process finished successfully
+					switch ( $infraction_issue ) {
+			
+						case true:
+							// It did
+							$status = true;
+							echo "<div class=\"square good\">";
+							echo "<strong>Success</strong>";
+							echo "<br />";
+							echo "Infraction has been added to user!";
+							echo "</div>";
+							break;
+			
+						case false:
+							// It failed :(
+							$status = false;
+							echo "<div class=\"square bad\">";
+							echo "<strong>Failure</strong>";
+							echo "<br />";
+							echo "The server encountered an error while processing your request.";
+							echo "</div>";
+							break;	
+					}
+
+			}
+			else if ( $_POST['type'] == "warning" ) {
+
+					// They are issuing an infraction
+					$warning_issue = addWarningToUser( $username, $reason );
+	
+					// Check if the process finished successfully
+					switch ( $warning_issue ) {
+			
+						case true:
+							// It did
+							$status = true;
+							echo "<div class=\"square good\">";
+							echo "<strong>Success</strong>";
+							echo "<br />";
+							echo "Warning has been added to user!";
+							echo "</div>";
+							break;
+			
+						case false:
+							// It failed :(
+							$status = false;
+							echo "<div class=\"square bad\">";
+							echo "<strong>Failure</strong>";
+							echo "<br />";
+							echo "The server encountered an error while processing your request.";
+							echo "</div>";
+							break;		
+					}
+			}
+	}
+?>
 		<p>Naughty users? Give them an infraction! Select a user, and click add!</p>
 		<table width="100%" cellpadding="3" cellspacing="0">
 
@@ -102,7 +122,7 @@ else {
 										"required",
 										"reason",
 										"Reason",
-										"The reason for the warning or infraction",
+										"It's always nice to give a reason",
 										$data['reason'] );
 		?>
 
@@ -116,6 +136,5 @@ else {
 </form>
 <?php
 echo $core->buildFormJS('addInfraction');
-}
 ?>
 
