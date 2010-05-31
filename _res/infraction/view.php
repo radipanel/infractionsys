@@ -46,6 +46,7 @@ require_once( "functions.php" );
 			$i++;
 
 		}
-		?>		
+		?>
+	</div>	
 </form>
 </div>

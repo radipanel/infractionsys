@@ -58,6 +58,7 @@ $totalWarnings = mysql_result($totalWarnings,"totalWarnings");
 			$i++;
 
 		}
-		?>		
+		?>
+	</div>	
 </form>
 </div>

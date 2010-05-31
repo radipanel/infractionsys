@@ -131,6 +131,7 @@ require_once( "functions.php" );
 		<div class="box" align="right">
 			<input class="button" type="submit" name="submit" value="Submit" />
 		</div>
+	</div>
 </form>
 <?php
 echo $core->buildFormJS('addInfraction');
