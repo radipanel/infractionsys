@@ -8,7 +8,7 @@ include( "../../_inc/glob.php" );
  */
 function addInfractionToUser( $username, $reason ) {
 	
-	// Declare $db as a global function
+	// Declare $db as a global variable
 	global $db;
 	
 	// First, we grab how many infractions this user currently has
@@ -54,7 +54,7 @@ function addInfractionToUser( $username, $reason ) {
  */
 function removeInfractionFromUser( $username, $reason ) {
 
-	// Declare $db as a global function
+	// Declare $db as a global variable
 	global $db;
 	
 	// First, we grab how many infractions this user currently has
@@ -82,7 +82,7 @@ function removeInfractionFromUser( $username, $reason ) {
  */
 function addWarningToUser( $username, $reason ) {
 
-	// Declare $db as a global function
+	// Declare $db as a global variable
 	global $db;
 	
 	// First, we grab how many warnings this user currently has
@@ -120,7 +120,7 @@ function addWarningToUser( $username, $reason ) {
  */
 function removeWarningFromUser( $username, $reason ) {
 
-	// Declare $db as a global function
+	// Declare $db as a global variable
 	global $db;
 	
 	// First, we grab how many warnings this user currently has
