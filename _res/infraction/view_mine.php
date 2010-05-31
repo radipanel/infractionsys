@@ -59,5 +59,6 @@ $totalWarnings = mysql_result($totalWarnings,"totalWarnings");
 
 		}
 		?>		
-</form>
 </div>
+</form>
+
