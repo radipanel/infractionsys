@@ -44,7 +44,7 @@ function addInfractionToUser( $username, $reason ) {
 	}
 
 	// And log the infraction
-	$db->query( "INSERT INTO infraction_log (id, username, reason, type, addrem, issuedby, timestamp) VALUES (NULL, '{$username}', '{$reason}', 'infraction', 'add', '{­$issuedby}, NULL)" );
+	$db->query( "INSERT INTO infraction_log (id, username, reason, type, addrem, issuedby, timestamp) VALUES (NULL, '{$username}', '{$reason}', 'infraction', 'add', '{­$issuedby}', NULL)" );
 
 	// And it's done ;)
 	return true;
@@ -76,7 +76,7 @@ function removeInfractionFromUser( $username, $reason ) {
 	$db->query( "UPDATE users SET totalInfractions = '{$newinfraction}' WHERE username = '{$username}'" );
 	
 	// And log the removed infraction
-	$db->query( "INSERT INTO infraction_log (id, username, reason, type, addrem, issuedby, timestamp) VALUES (NULL, '{$username}', '{$reason}', 'infraction', 'rem', '{­$issuedby}, NULL)" );
+	$db->query( "INSERT INTO infraction_log (id, username, reason, type, addrem, issuedby, timestamp) VALUES (NULL, '{$username}', '{$reason}', 'infraction', 'rem', '{­$issuedby}', NULL)" );
 
 	// And it's done ;)
 	return true;
@@ -118,7 +118,7 @@ function addWarningToUser( $username, $reason ) {
 	}
 
 	// And log the infraction
-	$db->query( "INSERT INTO infraction_log (id, username, reason, type, addrem, issuedby, timestamp) VALUES (NULL, '{$username}', '{$reason}', 'warning', 'add', '{­$issuedby}, NULL)" );
+	$db->query( "INSERT INTO infraction_log (id, username, reason, type, addrem, issuedby, timestamp) VALUES (NULL, '{$username}', '{$reason}', 'warning', 'add', '{­$issuedby}', NULL)" );
 
 	// And it's done ;)
 	return true;
@@ -150,7 +150,7 @@ function removeWarningFromUser( $username, $reason ) {
 	$db->query( "UPDATE users SET totalWarnings = '{$newwarning}' WHERE username = '{$username}'" );
 	
 	// And log the removed infraction
-	$db->query( "INSERT INTO infraction_log (id, username, reason, type, addrem, issuedby, timestamp) VALUES (NULL, '{$username}', '{$reason}', 'warning', 'rem', '{­$issuedby}, NULL)" );
+	$db->query( "INSERT INTO infraction_log (id, username, reason, type, addrem, issuedby, timestamp) VALUES (NULL, '{$username}', '{$reason}', 'warning', 'rem', '{­$issuedby}', NULL)" );
 
 	// And it's done ;)
 	return true;

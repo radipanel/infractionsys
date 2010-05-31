@@ -27,7 +27,7 @@ require_once( "functions.php" );
 			
 			echo "{$array['type']} Report: <strong>{$array['username']}</strong>";
 			echo "<br />";
-			echo "<strong>Reason:</strong> {$array['host']}";
+			echo "<strong>Reason:</strong> {$array['reason']}";
 			echo "<br />";
 			if ( $array['addrem'] == "add" ) {
 			echo "<strong>Action:</strong> Added";
