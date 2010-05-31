@@ -6,7 +6,7 @@ if( !preg_match( "/index.php/i", $_SERVER['PHP_SELF'] ) ) { die(); }
 require_once( "functions.php" );
 
 // Check if the form has been submitted
-if ( isset( $_POST['submitted'] == "true" ) ) {
+if( $_POST['submit'] ) {
 
 	// Insert data into variables
 	$username = $_POST['username'];
@@ -66,36 +66,56 @@ else {
 		</div>
 
 		<p>Naughty users? Give them an infraction! Select a user, and click add!</p>
-		<label for="username">User:</label>
-		<select name="username" id="username">
+		<table width="100%" cellpadding="3" cellspacing="0">
+
 		<?php
-			// First, we grab all the users
-			$getUsers = $db->query( "SELECT * FROM users" );
-			// And then we use a while loop to create a select HTML statement
-			while( $array = $db->assoc( $getUsers ) ) {
+		// First, we grab all the users
+		$getUsers = $db->query( "SELECT * FROM users" );
+
+		// Then use a while loop to create the array with it's values
+		while( $array = $db->assoc( $getUsers ) ) {
+					
+				$users[$array['username']] = $array['username'];
+					
+		}
+
+		echo $core->buildField( "select",
+										"required",
+										"username",
+										"Username",
+										"The user we wish to infract",
+										$users);
+
+		$opt_type = Array (
+							"infraction" => "Infraction",
+							"warning" => "Warning"
+		);
+
+		echo $core->buildField( "select",
+										"required",
+										"type",
+										"Type",
+										"Warning or infraction?",
+										$opt_type );
+		
+		echo $core->buildField( "text",
+										"required",
+										"reason",
+										"Reason",
+										"The reason for the warning or infraction",
+										$data['reason'] );
 		?>
-		<option value="<?php echo $array['username']; ?>"><?php echo $array['username']; ?></option>
-		<?php
-			}
-		?>
-		</select>
-
-		<label for="type">Type:</label>
-		<select name="type" id="type">
-
-			<option value="infraction">Infraction</option>
-			<option value="warning">Warning</option>
-
-		</select>
-
-		<label for="reason">Reason:</label>
-		<input type="text" name="reason" />
 
 		<input type="hidden" name="submitted" value="true" />
 
-		<input type="submit" value="Add!" />
+		</table>
+
+		<div class="box" align="right">
+			<input class="button" type="submit" name="submit" value="Submit" />
+		</div>
 </form>
 <?php
+echo $core->buildFormJS('addInfraction');
 }
 ?>
 
