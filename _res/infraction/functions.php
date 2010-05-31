@@ -13,7 +13,7 @@ function addInfractionToUser( $username, $reason ) {
 	global $user;
 
 	// Find out who issued it
-	$issuedby = $user->data['fullUsername'];
+	$issuedby = $user->data['username'];
 	
 	// First, we grab how many infractions this user currently has
 	$preinfraction = $db->query( "SELECT totalInfractions FROM users WHERE username = '{$username}' LIMIT 1" );
@@ -63,7 +63,7 @@ function removeInfractionFromUser( $username, $reason ) {
 	global $user;
 
 	// Find out who issued it
-	$issuedby = $user->data['fullUsername'];
+	$issuedby = $user->data['username'];
 	
 	// First, we grab how many infractions this user currently has
 	$preinfraction = $db->query( "SELECT totalInfractions FROM users WHERE username = '{$username}' LIMIT 1" );
@@ -95,7 +95,7 @@ function addWarningToUser( $username, $reason ) {
 	global $user;
 
 	// Find out who issued it
-	$issuedby = $user->data['fullUsername'];
+	$issuedby = $user->data['username'];
 	
 	// First, we grab how many warnings this user currently has
 	$prewarning = $db->query( "SELECT totalWarnings FROM users WHERE username = '{$username}'" );
@@ -137,7 +137,7 @@ function removeWarningFromUser( $username, $reason ) {
 	global $user;
 
 	// Find out who issued it
-	$issuedby = $user->data['fullUsername'];
+	$issuedby = $user->data['username'];
 	
 	// First, we grab how many warnings this user currently has
 	$prewarning = $db->query( "SELECT totalWarnings FROM users WHERE username = '{$username}' LIMIT 1" );
