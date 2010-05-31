@@ -25,9 +25,18 @@ require_once( "functions.php" );
 		
 			echo "<div class=\"row {$i}\">";
 			
-			echo "Infraction to <strong>{$array['username']}</strong>";
+			echo "{$array['type']} Report: <strong>{$array['username']}</strong>";
 			echo "<br />";
 			echo "<strong>Reason:</strong> {$array['host']}";
+			echo "<br />";
+			if ( $array['addrem'] == "add" ) {
+			echo "<strong>Action:</strong> Added";
+			}
+			else {
+			echo "<strong>Action:</strong> Removed";
+			}
+			echo "<br />";
+			echo "<strong>Date / Time:</strong> {$array['timestamp']}";
 			echo "</div>";
 			
 			$i++;
