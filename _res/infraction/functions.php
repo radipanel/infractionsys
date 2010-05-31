@@ -72,6 +72,12 @@ function removeInfractionFromUser( $username, $reason ) {
 	// So now we have that, we take one from the number
 	$newinfraction = $preinfraction - 1;
 
+	// A quick negative check, if it's less than 0, it's just 0!
+	if ($newinfraction < 0) {
+		// It's less than 0, it's just 0 :L
+		$newinfraction = 0;
+	}
+
 	// And now we just update their total
 	$db->query( "UPDATE users SET totalInfractions = '{$newinfraction}' WHERE username = '{$username}'" );
 	
@@ -145,6 +151,12 @@ function removeWarningFromUser( $username, $reason ) {
 
 	// So now we have that, we take one from the number
 	$newwarning = $prewarning - 1;
+
+	// A quick negative check, if it's less than 0, it's just 0!
+	if ($newwarning < 0) {
+		// It's less than 0, it's just 0 :L
+		$newwarning = "0";
+	}
 
 	// And now we just update their total
 	$db->query( "UPDATE users SET totalWarnings = '{$newwarning}' WHERE username = '{$username}'" );
