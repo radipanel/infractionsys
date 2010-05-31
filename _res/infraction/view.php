@@ -10,7 +10,7 @@ require_once( "functions.php" );
 	<div class="box">
 
 		<div class="square title">
-			<strong>View Infraction Log For User</strong>
+			<strong>View Infraction Log</strong>
 		</div>
 
 		<p>The infraction log is a list of all infractions issued, to whom and for what. Nothing special here, it's just a big list!</p>
