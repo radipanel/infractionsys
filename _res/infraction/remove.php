@@ -85,7 +85,7 @@ require_once( "functions.php" );
 			}
 	}
 ?>
-		<p>Made a mistake? Remove any waring or infraction from a user here! Select the user, make an apology and click remove!</p>
+		<p>Made a mistake? Remove any warning or infraction from a user here! Select the user, make an apology and click remove!</p>
 		<table width="100%" cellpadding="3" cellspacing="0">
 
 		<?php
