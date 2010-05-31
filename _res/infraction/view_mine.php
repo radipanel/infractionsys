@@ -27,9 +27,9 @@ $totalWarnings = mysql_result($totalWarnings,"totalWarnings");
 			<strong>View My Infraction / Warning Log</strong>
 		</div>
 
-		<p>Have you been good? Check out your current infraction / warning level here! Have none? Good!</p>
-		<p>You currently have <strong><?php echo $totalInfractions; ?></strong> infractions and <strong><?php echo $totalWarnings; ?></strong> warnings</p>
-
+		<p>Current Infractions/Warnings:</p>
+		<p>You have <strong><?php echo $totalInfractions; ?></strong> infractions.<br /> You have <strong><?php echo $totalWarnings; ?></strong> warnings.</p>
+		<br />
 		<?php
 		$infraction_log = $db->query( "SELECT * FROM infraction_log WHERE username='{$myusername}'" );
 		
@@ -39,7 +39,7 @@ $totalWarnings = mysql_result($totalWarnings,"totalWarnings");
 			
 			$array['type'] = ucwords( $array['type'] );
 			
-			echo "{$array['type']} Report: <strong>{$array['username']}</strong>";
+			
 			echo "<br />";
 			echo "<strong>Reason:</strong> {$array['reason']}";
 			echo "<br />";
@@ -58,7 +58,6 @@ $totalWarnings = mysql_result($totalWarnings,"totalWarnings");
 			$i++;
 
 		}
-		?>
-	</div>	
+		?>		
 </form>
 </div>
