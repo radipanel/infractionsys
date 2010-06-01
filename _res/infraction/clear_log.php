@@ -5,6 +5,9 @@ if( !preg_match( "/index.php/i", $_SERVER['PHP_SELF'] ) ) { die(); }
 // Require the functions.php file
 require_once( "functions.php" );
 
+// Declare $db as global
+global $db;
+
 ?>
 <form action="" method="post" id="clearLog">
 
