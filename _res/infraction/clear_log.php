@@ -25,7 +25,8 @@ global $db;
 			if ($_POST['understand'] == "Yes") {
 
 				// First, we reset all the warning and infraction totals (but we don't modify their ban)
-				$clean_slate = $db->query ( "UPDATE `users` SET totalWarnings = '0'; UPDATE `users` SET totalInfractions = '0'" );
+				$clean_slate = $db->query ( "UPDATE `users` SET totalWarnings = '0'" );
+				$clean_slate = $db->query( "UPDATE `users` SET totalInfractions = '0'" );
 
 				// Check if that executed properly
 				if ( $clean_slate == true ) {
