@@ -92,6 +92,9 @@ global $db;
 						$data['understand'] );
 		?>
 		</table>
+		<div class="box" align="right">
+			<input class="button" type="submit" name="submit" value="Submit" />
+		</div>
 	</div>
 </form>
 <?php
