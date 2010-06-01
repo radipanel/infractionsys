@@ -6,7 +6,7 @@ if( !preg_match( "/index.php/i", $_SERVER['PHP_SELF'] ) ) { die(); }
 require_once( "functions.php" );
 
 ?>
-<form action="" method="post" id="addInfraction">
+<form action="" method="post" id="clearLog">
 
 	<div class="box">
 
@@ -91,3 +91,6 @@ require_once( "functions.php" );
 		</table>
 	</div>
 </form>
+<?php
+echo $core->buildFormJS('clearLog');
+?>
