@@ -27,8 +27,7 @@ $totalWarnings = mysql_result($totalWarnings,"totalWarnings");
 			<strong>View My Infraction / Warning Log</strong>
 		</div>
 
-		<p>Current Infractions/Warnings:</p>
-		<p>You have <strong><?php echo $totalInfractions; ?></strong> infractions.<br /> You have <strong><?php echo $totalWarnings; ?></strong> warnings.</p>
+		<p>You have <strong><?php echo $totalInfractions; ?></strong> and <strong><?php echo $totalWarnings; ?></strong> warnings.</p>
 		<br />
 		<?php
 		$infraction_log = $db->query( "SELECT * FROM infraction_log WHERE username='{$myusername}'" );
