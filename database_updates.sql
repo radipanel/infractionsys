@@ -3,6 +3,7 @@ ALTER TABLE `users` ADD `totalInfractions` INT( 1 ) NOT NULL DEFAULT '0', ADD `t
 INSERT INTO `menu` (id, text, url, resource, usergroup, protected, weight) VALUES (NULL, 'Add infraction', 'infraction.add', '_res/infraction/add.php', '5', '0', '0');
 INSERT INTO `menu` (id, text, url, resource, usergroup, protected, weight) VALUES (NULL, 'Remove infraction', 'infraction.remove', '_res/infraction/remove.php', '5', '0', '0');
 INSERT INTO `menu` (id, text, url, resource, usergroup, protected, weight) VALUES (NULL, 'View infraction log', 'infraction.viewlog', '_res/infraction/view.php', '5', '0', '0');
+INSERT INTO `menu` (id, text, url, resource, usergroup, protected, weight) VALUES (NULL, 'Clear infraction log', 'infraction.clearlog', '_res/infraction/clear_log.php', '5', '0', '0');
 INSERT INTO `menu` (id, text, url, resource, usergroup, protected, weight) VALUES (NULL, 'View my infraction log', 'user.viewMyLog', '_res/infraction/view_mine.php', '1', '0', '0');
 
 CREATE TABLE `infraction_log` (
