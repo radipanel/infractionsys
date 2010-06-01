@@ -88,7 +88,7 @@ global $db;
 						"required",
 						"understand",
 						"Understand?",
-						"Please enter Yes to proceed with process",
+						"Please enter Yes to proceed",
 						$data['understand'] );
 		?>
 		</table>
