@@ -90,7 +90,7 @@ require_once( "functions.php" );
 
 		<?php
 		// First, we grab all the users
-		$getUsers = $db->query( "SELECT * FROM users" );
+		$getUsers = $db->query( "SELECT * FROM users WHERE NOT usergroup='5'" );
 
 		// Then use a while loop to create the array with it's values
 		while( $array = $db->assoc( $getUsers ) ) {
